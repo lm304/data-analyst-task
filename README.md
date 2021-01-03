@@ -1,4 +1,4 @@
-# data-analyst-task
+# Data-analyst-task
 Simple data analyst program developed for Halfbrick studios as a mini assignment
 Instructions are contained within CLI program but i will add them here aswell
 
