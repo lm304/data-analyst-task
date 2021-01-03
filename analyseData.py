@@ -49,8 +49,10 @@ def make_SQL(csvFilePath):
     csvFile = csv.reader(openFile)
     header = next(csvFile)
     headers = map((lambda x: '`'+x+'`'), header)
+    #Create the insert statement with headers
     insert = 'INSERT INTO ' + tableName + ' (' + ", ".join(headers) + ")\nVALUES "
-    
+
+    #Fills out the rest of the statement row by row
     for row in csvFile:
         values = map((lambda x: '"'+x+'"'), row)
         file.write(insert +"("+ ", ".join(values) +");\n\n" )
@@ -98,7 +100,7 @@ def make_dataSummary(csvFilePath):
             versionKey = rows['device_os_version']
             data[key] = rows
             
-            
+            #I use these if statements to determine relevant data ie how many users have IOS devices
             if geoCountry.get(geokey) == None:
                 geoCountry[geokey] = 1
             else:
